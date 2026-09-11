@@ -4,15 +4,18 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import type { ValuationRequest } from "@/types/valuation";
 import type { VehicleContext } from "@/types/vehicle";
+import { estimateVehicleValue } from "@/services/vehicleValuationService";
 
 type Props = { vehicle: VehicleContext; onClose: () => void };
-const steps = ["Araç", "Teknik bilgiler", "Araç durumu", "İletişim"];
+const steps = ["Araç", "Kilometre ve teknik", "Araç durumu", "Ön değerleme", "Randevu"];
 const initial: ValuationRequest = { firstName: "", lastName: "", phone: "", email: "" };
 
 export function ValuationWizard({ vehicle, onClose }: Props) {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<ValuationRequest>({ ...initial, ...vehicle });
   const [submitted, setSubmitted] = useState(false);
+  const estimate = estimateVehicleValue(form);
+  const currency = (value: number) => new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 }).format(value);
   const update = (key: keyof ValuationRequest, value: string) => setForm((current) => ({ ...current, [key]: value }));
   const submit = async () => {
     await fetch("/api/valuation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
@@ -27,7 +30,8 @@ export function ValuationWizard({ vehicle, onClose }: Props) {
         {step === 0 && <div className="wizard-grid"><ReadOnly label="Model yılı" value={String(form.year ?? "")} /><ReadOnly label="Marka" value={form.brand ?? ""} /><ReadOnly label="Model" value={form.model ?? ""} /></div>}
         {step === 1 && <div className="wizard-grid"><Field label="Kilometre" value={String(form.mileage ?? "")} onChange={(v) => update("mileage", v)} type="number" placeholder="Örn. 85.000" /><Field label="Yakıt" value={form.fuelType ?? ""} onChange={(v) => update("fuelType", v)} placeholder="Benzin, dizel, hibrit..." /><Field label="Vites" value={form.transmission ?? ""} onChange={(v) => update("transmission", v)} placeholder="Otomatik / manuel" /><Field label="Motor" value={form.engine ?? ""} onChange={(v) => update("engine", v)} placeholder="Örn. 1.5 TSI" /><Field label="Paket / versiyon" value={form.trim ?? ""} onChange={(v) => update("trim", v)} placeholder="Örn. Elegance" /></div>}
         {step === 2 && <div className="wizard-grid"><Field label="Değişen parça var mı?" value={form.replacedParts ?? ""} onChange={(v) => update("replacedParts", v)} placeholder="Yok / varsa belirtin" /><Field label="Boyalı parça var mı?" value={form.paintedParts ?? ""} onChange={(v) => update("paintedParts", v)} placeholder="Yok / varsa belirtin" /><Field label="Tramer tutarı" value={form.damageAmount ?? ""} onChange={(v) => update("damageAmount", v)} placeholder="Bilinmiyor / tutar" /><Field label="Ağır hasar kaydı" value={form.severeDamage ?? ""} onChange={(v) => update("severeDamage", v)} placeholder="Var / yok / bilinmiyor" /><Field label="Genel kondisyon" value={form.condition ?? ""} onChange={(v) => update("condition", v)} placeholder="Çok iyi, iyi, orta..." /></div>}
-        {step === 3 && <div className="wizard-grid"><Field label="Ad" value={form.firstName} onChange={(v) => update("firstName", v)} placeholder="Adınız" required /><Field label="Soyad" value={form.lastName} onChange={(v) => update("lastName", v)} placeholder="Soyadınız" required /><Field label="Telefon" value={form.phone} onChange={(v) => update("phone", v)} placeholder="05XX XXX XX XX" type="tel" required /><Field label="E-mail" value={form.email} onChange={(v) => update("email", v)} placeholder="ornek@email.com" type="email" required /></div>}
+        {step === 3 && <div className="valuation-result"><span>TAHMİNİ PİYASA ARALIĞI</span><h3>{currency(estimate.low)} <small>—</small> {currency(estimate.high)}</h3><div><p><b>Önerilen referans</b>{currency(estimate.midpoint)}</p><p><b>Veri güveni</b>{estimate.confidence}</p><p><b>Piyasa endeksi</b>{estimate.indexDate}</p></div><small>Bu sonuç araç bilgileriniz ve D CARS değerleme katsayılarıyla oluşturulan bağlayıcı olmayan ön tahmindir. Kesin teklif fiziksel ekspertiz ve güncel emsal kontrolü sonrasında belirlenir.</small></div>}
+        {step === 4 && <div className="wizard-grid"><Field label="Ad" value={form.firstName} onChange={(v) => update("firstName", v)} placeholder="Adınız" required /><Field label="Soyad" value={form.lastName} onChange={(v) => update("lastName", v)} placeholder="Soyadınız" required /><Field label="Telefon" value={form.phone} onChange={(v) => update("phone", v)} placeholder="05XX XXX XX XX" type="tel" required /><Field label="E-mail" value={form.email} onChange={(v) => update("email", v)} placeholder="ornek@email.com" type="email" required /></div>}
       </div>
       <div className="wizard-footer"><button className="wizard-back" onClick={() => setStep((current) => current - 1)} disabled={step === 0}><ArrowLeft size={16} /> Geri</button>{step < steps.length - 1 ? <button className="button button--primary" onClick={() => setStep((current) => current + 1)}>Devam et <ArrowRight size={16} /></button> : <button className="button button--primary" onClick={submit}>Talebi gönder <ArrowRight size={16} /></button>}</div>
     </div></div>

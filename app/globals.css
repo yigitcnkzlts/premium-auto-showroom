@@ -1643,7 +1643,7 @@ h1 em {
 
 .wizard-progress {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 8px;
 }
 
@@ -1678,6 +1678,30 @@ h1 em {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 14px;
 }
+
+.valuation-result {
+    padding: 6px 0;
+}
+
+.valuation-result > span {
+    color: #8b6d3e;
+    font-size: 11px;
+    letter-spacing: .14em;
+}
+
+.valuation-result h3 {
+    margin: 14px 0 24px;
+    font-size: clamp(27px, 4vw, 43px);
+    line-height: 1.08;
+    letter-spacing: -.045em;
+    font-weight: 500;
+}
+
+.valuation-result h3 small { color: #aaa49a; font-size: .65em; }
+.valuation-result > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 22px; background: #ddd9d0; }
+.valuation-result p { display: grid; gap: 8px; margin: 0; padding: 17px; background: #f8f7f4; font-size: 14px; }
+.valuation-result p b { color: #7c7870; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.valuation-result > small { display: block; color: #77736c; font-size: 11px; line-height: 1.65; }
 
 .wizard-value {
     display: flex;
@@ -1906,6 +1930,12 @@ h1 em {
     .site-footer__top { grid-template-columns: 1fr; }
     .site-footer__bottom { flex-direction: column; }
     .legal-page { padding-top: 135px; }
+}
+
+@media (max-width: 560px) {
+    .wizard-progress { grid-template-columns: repeat(5, minmax(58px, 1fr)); overflow-x: auto; }
+    .wizard-step span { display: none; }
+    .valuation-result > div { grid-template-columns: 1fr; }
 }
 
 /* Sade araç vitrini ve logolu marka seçimi */
