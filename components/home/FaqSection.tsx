@@ -6,10 +6,18 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const categories = {
   "Genel Bilgiler": [
-    ["D Cars nedir?", "D Cars; aracını hızlı, güvenli ve zahmetsiz biçimde satmak isteyen kullanıcıları profesyonel otomotiv alıcılarıyla buluşturan İstanbul merkezli bir otomotiv platformudur."],
-    ["Hangi araçlar değerlendirmeye alınabilir?", "Otomobil, SUV, arazi aracı ve hafif ticari araçlar değerlendirmeye alınabilir. Aracın yaşı, kilometresi, hasar geçmişi ve genel kondisyonu teklif sürecinde birlikte incelenir."],
+    ["D Cars nedir?", "D Cars; ikinci el aracını zahmetsiz ve hızlı biçimde satmak isteyen bireysel araç sahiplerini, yetki belgeli profesyonel otomotiv alıcılarıyla buluşturan İstanbul merkezli bir platformdur."],
+    ["Hangi araçlar açık artırmaya katılabilir?", "Otomobil, SUV, arazi aracı ve hafif ticari araçlar değerlendirmeye alınabilir. Aracın model yılı, kilometresi, hasar geçmişi ve genel kondisyonu uygunluk sürecinde birlikte incelenir."],
     ["D Cars nasıl çalışır?", "Araç bilgilerinizi iletin, ücretsiz ekspertiz randevunuzu oluşturun ve uzman ekibimizin hazırladığı değerlendirme sonucunu inceleyin. Teklifi kabul ettiğinizde noter ve ödeme süreci güvenli şekilde tamamlanır."],
-    ["Aracımı neden D Cars ile satmalıyım?", "Tek tek alıcılarla görüşmeden, pazarlık ve ilan süreciyle uğraşmadan profesyonel destek alırsınız. Ekspertizden ödemeye kadar tüm adımlar şeffaf biçimde yönetilir."],
+    ["Açık artırmada aracıma teklif verecek alıcılar kimlerdir?", "Teklifler, ikinci el araç ticareti için gerekli yetki belgelerine sahip kayıtlı bayiler ve profesyonel oto galeriler tarafından verilir."],
+    ["Arabamı neden D Cars'ta satmalıyım?", "Aracınız geniş bir profesyonel alıcı ağına sunulur. Tek tek alıcılarla görüşmeden, ilan ve pazarlık süreciyle uğraşmadan rekabetçi teklifleri şeffaf biçimde değerlendirebilirsiniz."],
+    ["D Cars'la araç satışı neden zahmetsiz?", "Ön değerleme, ekspertiz, tekliflerin toplanması, noter ve ödeme adımları tek ekip tarafından uçtan uca yönetilir."],
+    ["Açık artırmada araç satmak ücretli midir, satıcıdan komisyon alınıyor mu?", "Standart ön değerleme ve ekspertiz hizmetleri ücretsizdir. Satış öncesinde uygulanabilecek özel hizmet veya masraflar varsa açıkça bildirilir; onayınız olmadan ücret oluşturulmaz."],
+    ["Satış süreci toplamda ne kadar sürüyor?", "Randevu saati ve aracın kondisyonuna bağlı olarak ekspertiz, teklif ve satış işlemleri çoğunlukla aynı gün veya takip eden iş gününde tamamlanabilir."],
+    ["Arabama neden ekspertiz yapmak istiyorsunuz?", "Aracın mekanik, kaporta ve kozmetik durumunu doğru belirlemek; alıcılara eksiksiz bilgi sunmak ve gerçekçi bir başlangıç fiyatı oluşturmak için ekspertiz yapılır."],
+    ["Ekspertiz işlemini D Cars'ta yaptırmak zorunlu mu?", "Şeffaf ve doğrulanabilir bir satış süreci için aracın D Cars tarafından belirlenen standartlarda incelenmesi gerekir. Ekspertiz sırasında süreçle ilgili tüm bulgular sizinle paylaşılır."],
+    ["Aracım LPG'li, açık artırmaya katılabilir mi?", "LPG sistemi ruhsata işlenmiş ve yasal gereklilikleri karşılıyor ise araç değerlendirmeye alınabilir. Nihai uygunluk ekspertiz sırasında kontrol edilir."],
+    ["Güneş yanığı aracı satmama engel mi?", "Güneş yanığı tek başına satışa engel değildir. Ekspertizde hasarın seviyesi incelenir; satışa uygun bulunursa araç bu durum açıkça belirtilerek ve ayrıntılı biçimde fotoğraflanarak alıcılara sunulur."],
   ],
   "Fiyatlama Süreci": [
     ["Araç değeri nasıl hesaplanıyor?", "Marka, model, yıl, kilometre, donanım, hasar geçmişi, ekspertiz bulguları ve güncel piyasa verileri birlikte değerlendirilerek gerçekçi bir ön fiyat oluşturulur."],
