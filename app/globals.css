@@ -1845,6 +1845,69 @@ h1 em {
     }
 }
 
+/* Ana sayfa güven bölümü */
+.home-highlights {
+    padding: clamp(85px, 10vw, 150px) clamp(24px, 7vw, 112px);
+    background: #f4f2ed;
+}
+
+.home-highlights__heading {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 28px;
+    margin-bottom: clamp(48px, 7vw, 90px);
+}
+
+.home-highlights__heading > span { grid-column: 1 / -1; color: #8b6d3e; font-size: 12px; letter-spacing: .16em; }
+.home-highlights__heading h2 { margin: 0; font-size: clamp(44px, 6vw, 82px); line-height: .98; letter-spacing: -.055em; font-weight: 500; }
+.home-highlights__heading h2 em { color: #918b80; font-style: normal; font-weight: 400; }
+.home-highlights__heading a { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 1px solid #9b7a43; color: #765b32; font-size: 14px; }
+.home-highlights__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #d8d4cb; border: 1px solid #d8d4cb; }
+.home-highlights__grid article { min-height: 330px; padding: clamp(30px, 4vw, 54px); background: #fff; }
+.home-highlights__grid article > div { display: flex; align-items: center; justify-content: space-between; color: #997746; }
+.home-highlights__grid h3 { margin: 70px 0 18px; font-size: clamp(25px, 2.5vw, 37px); line-height: 1.08; letter-spacing: -.04em; font-weight: 500; }
+.home-highlights__grid p { margin: 0; color: #6b6963; font-size: 16px; line-height: 1.7; }
+
+/* Site geneli alt bilgi */
+.site-footer { background: #151514; color: #e9e7e1; }
+.site-footer__top { display: grid; grid-template-columns: 1.35fr repeat(3, 1fr); gap: clamp(35px, 6vw, 90px); padding: clamp(65px, 8vw, 110px) clamp(24px, 7vw, 112px); }
+.site-footer .brand-mark { color: #fff; }
+.site-footer .brand-mark__symbol { color: #d3ad71; }
+.site-footer .brand-mark__type small { color: #8d8a83; }
+.site-footer__brand p { max-width: 360px; margin: 28px 0; color: #9d9a93; font-size: 15px; line-height: 1.7; }
+.site-footer__brand > a { display: inline-flex; align-items: center; gap: 8px; color: #d0aa70; font-size: 14px; }
+.site-footer h2 { margin: 5px 0 25px; color: #d0aa70; font-size: 12px; letter-spacing: .13em; text-transform: uppercase; }
+.site-footer nav { display: grid; gap: 15px; }
+.site-footer nav a { color: #aaa7a0; font-size: 14px; transition: color .2s ease; }
+.site-footer nav a:hover { color: #fff; }
+.site-footer__contact p,
+.site-footer__contact a { display: flex; align-items: flex-start; gap: 10px; color: #aaa7a0; font-size: 14px; line-height: 1.7; }
+.site-footer__contact svg { flex: 0 0 auto; margin-top: 3px; color: #caa369; }
+.site-footer__bottom { display: flex; justify-content: space-between; gap: 20px; padding: 22px clamp(24px, 7vw, 112px); border-top: 1px solid rgba(255,255,255,.09); color: #77746e; font-size: 12px; }
+
+.legal-page { min-height: 80vh; padding: 190px clamp(24px, 7vw, 112px) 100px; background: #f7f7f4; }
+.legal-page header { max-width: 850px; padding-bottom: 55px; border-bottom: 1px solid #d9d6cf; }
+.legal-page header > span { color: #8b6d3e; font-size: 12px; letter-spacing: .15em; }
+.legal-page h1 { margin: 20px 0; font-size: clamp(48px, 7vw, 88px); line-height: .98; letter-spacing: -.055em; font-weight: 500; }
+.legal-page header p { color: #85827a; font-size: 13px; }
+.legal-page article { max-width: 780px; padding-top: 35px; }
+.legal-page article h2 { margin: 40px 0 12px; font-size: 25px; font-weight: 500; }
+.legal-page article p { color: #65635d; font-size: 16px; line-height: 1.8; }
+
+@media (max-width: 900px) {
+    .home-highlights__heading { grid-template-columns: 1fr; align-items: start; }
+    .home-highlights__grid { grid-template-columns: 1fr; }
+    .site-footer__top { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .home-highlights__grid article { min-height: 270px; }
+    .site-footer__top { grid-template-columns: 1fr; }
+    .site-footer__bottom { flex-direction: column; }
+    .legal-page { padding-top: 135px; }
+}
+
 /* Sade araç vitrini ve logolu marka seçimi */
 .hero__visual-stage {
     overflow: visible;
