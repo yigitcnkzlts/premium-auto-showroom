@@ -1957,6 +1957,19 @@ h1 em {
     background: #f7f7f4;
 }
 
+.standalone-content {
+    min-height: 100vh;
+    padding-top: 120px;
+}
+
+@media (max-width: 900px) {
+    .standalone-content { padding-top: 104px; }
+}
+
+@media (max-width: 560px) {
+    .standalone-content { padding-top: 82px; }
+}
+
 .content-hero,
 .standalone-flow > header {
     min-height: 500px;
