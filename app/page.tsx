@@ -2,6 +2,7 @@ import { ArrowDownRight, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import Link from "next/link";
 import { DynamicCarShowroom } from "@/components/three/DynamicCarShowroom";
+import { FaqSection } from "@/components/home/FaqSection";
 
 const stats = [["5.000+", "Değerlenen araç"], ["2.500+", "Mutlu müşteri"], ["24 saat", "İçinde teklif"], ["%100", "Güvenli süreç"]];
 
@@ -34,6 +35,7 @@ export default function Home() {
         <div className="trust-strip__lead"><ShieldCheck size={21} /><span>Güven, her yolculuğun<br />başlangıç noktasıdır.</span></div>
         {stats.map(([value, label]) => <div className="stat" key={label}><strong>{value}</strong><span>{label}</span></div>)}
       </section>
+      <FaqSection />
     </main>
   );
 }
