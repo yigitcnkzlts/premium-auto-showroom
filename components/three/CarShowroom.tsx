@@ -19,7 +19,7 @@ export function CarShowroom() {
     return () => controller.abort();
   }, []);
   if (available === null) return <div className="showroom-loading"><span className="showroom-loading__line" /><span>MODEL KONTROL EDİLİYOR</span></div>;
-  if (!available) return <div className="showroom-fallback"><Image src="/images/q8-showroom.png" alt="Aydınlık premium showroomda siyah Audi Q8" fill priority sizes="(max-width: 900px) 100vw, 58vw" /><span className="fallback-note">Seçkin araç · Ekspertiz onaylı</span></div>;
+  if (!available) return <div className="showroom-fallback"><Image src="/images/q8-cutout.png" alt="Siyah Audi Q8" fill priority sizes="(max-width: 900px) 100vw, 58vw" /></div>;
   return (
     <div className="showroom-canvas" onPointerDown={() => setInteracting(true)} onPointerUp={() => setInteracting(false)} onPointerLeave={() => setInteracting(false)}>
       {!ready && <Progress />}

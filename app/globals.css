@@ -1845,6 +1845,110 @@ h1 em {
     }
 }
 
+/* Sade araç vitrini ve logolu marka seçimi */
+.hero__visual-stage {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.showroom-fallback {
+    overflow: visible;
+}
+
+.showroom-fallback::after {
+    display: none;
+}
+
+.showroom-fallback img {
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 34px 24px rgba(22, 22, 20, .2));
+}
+
+.brand-picker {
+    order: -1;
+    grid-column: 1 / -1;
+    margin: 0 0 12px;
+    padding: 0;
+    border: 0;
+}
+
+.brand-picker legend,
+.brand-all > span {
+    margin-bottom: 10px;
+    color: #77746d;
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.brand-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(72px, 1fr));
+    gap: 8px;
+}
+
+.brand-logo {
+    min-height: 84px;
+    display: grid;
+    place-items: center;
+    gap: 7px;
+    padding: 12px 7px 9px;
+    border: 1px solid #deddd8;
+    border-radius: 12px;
+    background: #fafaf8;
+    color: #5f5d58;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.brand-logo:hover,
+.brand-logo--active {
+    border-color: #a88a5a;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(57, 49, 37, .09);
+    transform: translateY(-2px);
+}
+
+.brand-logo img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand-logo span {
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.brand-all {
+    display: grid;
+    grid-template-columns: auto minmax(180px, 260px);
+    align-items: center;
+    justify-content: end;
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.brand-all > span { margin: 0; }
+.brand-all select { height: 44px; padding: 0 12px; border: 1px solid #deddd8; border-radius: 9px; background: #fff; color: #222; }
+
+@media (max-width: 1100px) {
+    .brand-logo-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .brand-logo-grid { grid-template-columns: repeat(2, 1fr); }
+    .brand-all { grid-template-columns: 1fr; justify-content: stretch; }
+    .brand-all select { width: 100%; }
+}
+
 /* İçerik sayfaları */
 .content-page,
 .standalone-flow {
