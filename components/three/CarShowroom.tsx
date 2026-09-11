@@ -19,7 +19,7 @@ export function CarShowroom() {
     return () => controller.abort();
   }, []);
   if (available === null) return <div className="showroom-loading"><span className="showroom-loading__line" /><span>MODEL KONTROL EDİLİYOR</span></div>;
-  if (!available) return <div className="showroom-fallback"><Image src="/images/car-fallback.png" alt="Koyu renk premium spor otomobil" fill priority sizes="(max-width: 900px) 100vw, 64vw" /><span className="fallback-note">3D model eklendiğinde interaktif görünüm otomatik devreye girer.</span></div>;
+  if (!available) return <div className="showroom-fallback"><Image src="/images/car-fallback.png" alt="Koyu renk premium spor otomobil" fill priority sizes="(max-width: 900px) 100vw, 64vw" /></div>;
   return (
     <div className="showroom-canvas" onPointerDown={() => setInteracting(true)} onPointerUp={() => setInteracting(false)} onPointerLeave={() => setInteracting(false)}>
       {!ready && <Progress />}
